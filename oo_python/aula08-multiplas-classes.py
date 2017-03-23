@@ -18,9 +18,9 @@ class Animal:
 
 Rex = Animal('Preto', 'masculino', 4)	
 
-Rex.falar()
-Rex.andar()
-Rex.amamentar()
+#Rex.falar()
+#Rex.andar()
+#Rex.amamentar()
 
 class Pessoa(Animal):
 	def __init__(self, cor, genero, andar, cabelo):
@@ -30,8 +30,13 @@ class Pessoa(Animal):
 	def cor_cabelo(self):
 		print('A cor do cabelo é {}'.format(self.cabelo))
 
+	def falar(self):
+		super(Pessoa, self).falar()# Se deixar desta forma a classe pessoa executa o metodo falar das 2 classes tanto a classe Pessoa quanto a classe Animal.
+		print('Olá sou uma pessoa e sei falar')
+
 Gabriel = Pessoa('branco', 'masculino', 2, 'castanho')
 
 Gabriel.andar()
 Gabriel.amamentar()
 Gabriel.cor_cabelo()
+Gabriel.falar()# Quando executado esse comando com o super no metodo falar ele executa ambos os metodos das classes la referenciadas.
